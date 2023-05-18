@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">mobile_app_final_project</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_GOTG">星際異攻隊</string>
+    <string name="title_mario">超級瑪利歐電影</string>
+    <string name="title_FFX">速度與激情</string>
 </resources>

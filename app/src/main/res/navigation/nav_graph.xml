@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/main_page">
+
+    <fragment
+        android:id="@+id/main_page"
+        android:name="com.example.mobile_app_final_project.Main_page"
+        android:label="fragment_main_page"
+        tools:layout="@layout/fragment_main_page" >
+        <action
+            android:id="@+id/action_main_page_to_member_service"
+            app:destination="@id/member_service" />
+        <action
+            android:id="@+id/action_main_page_to_about_us"
+            app:destination="@id/about_us" />
+        <action
+            android:id="@+id/action_main_page_to_booking"
+            app:destination="@id/booking" />
+        <action
+            android:id="@+id/action_main_page_to_movie_query"
+            app:destination="@id/movie_query" />
+        <action
+            android:id="@+id/action_main_page_to_info_FastAndFurious2"
+            app:destination="@id/info_FastAndFurious" />
+        <action
+            android:id="@+id/action_main_page_to_info_SuperMarioMovie"
+            app:destination="@id/info_SuperMarioMovie" />
+        <action
+            android:id="@+id/action_main_page_to_info_GuardiansOfTheGalaxy"
+            app:destination="@id/info_GuardiansOfTheGalaxy" />
+    </fragment>
+    <fragment
+        android:id="@+id/about_us"
+        android:name="com.example.mobile_app_final_project.About_us"
+        android:label="fragment_about_us"
+        tools:layout="@layout/fragment_about_us" />
+    <fragment
+        android:id="@+id/booking"
+        android:name="com.example.mobile_app_final_project.Booking"
+        android:label="fragment_booking"
+        tools:layout="@layout/fragment_booking" >
+        <action
+            android:id="@+id/action_booking_to_info_GuardiansOfTheGalaxy"
+            app:destination="@id/info_GuardiansOfTheGalaxy" />
+        <action
+            android:id="@+id/action_booking_to_info_SuperMarioMovie"
+            app:destination="@id/info_SuperMarioMovie" />
+        <action
+            android:id="@+id/action_booking_to_info_FastAndFurious"
+            app:destination="@id/info_FastAndFurious" />
+    </fragment>
+    <fragment
+        android:id="@+id/member_service"
+        android:name="com.example.mobile_app_final_project.Member_service"
+        android:label="fragment_member_service"
+        tools:layout="@layout/fragment_member_service" >
+        <action
+            android:id="@+id/action_member_service_to_login"
+            app:destination="@id/login" />
+    </fragment>
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.mobile_app_final_project.Login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/movie_query"
+        android:name="com.example.mobile_app_final_project.Movie_query"
+        android:label="fragment_movie_query"
+        tools:layout="@layout/fragment_movie_query" >
+        <action
+            android:id="@+id/action_movie_query_to_info_FastAndFurious"
+            app:destination="@id/info_FastAndFurious" />
+        <action
+            android:id="@+id/action_movie_query_to_info_SuperMarioMovie"
+            app:destination="@id/info_SuperMarioMovie" />
+        <action
+            android:id="@+id/action_movie_query_to_info_GuardiansOfTheGalaxy"
+            app:destination="@id/info_GuardiansOfTheGalaxy" />
+    </fragment>
+    <fragment
+        android:id="@+id/info_FastAndFurious"
+        android:name="com.example.mobile_app_final_project.Info_FastAndFurious"
+        android:label="fragment_info__fast_and_furious"
+        tools:layout="@layout/fragment_info__fast_and_furious" />
+    <fragment
+        android:id="@+id/info_GuardiansOfTheGalaxy"
+        android:name="com.example.mobile_app_final_project.Info_GuardiansOfTheGalaxy"
+        android:label="fragment_info__guardians_of_the_galaxy"
+        tools:layout="@layout/fragment_info__guardians_of_the_galaxy" />
+    <fragment
+        android:id="@+id/info_SuperMarioMovie"
+        android:name="com.example.mobile_app_final_project.Info_SuperMarioMovie"
+        android:label="fragment_info__super_mario_movie"
+        tools:layout="@layout/fragment_info__super_mario_movie" />
+</navigation>

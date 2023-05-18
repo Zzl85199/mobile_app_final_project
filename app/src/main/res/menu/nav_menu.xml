@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/nav_bar_query"
+        app:showAsAction="always"
+        android:title="電影查詢" />
+    <item
+        android:id="@+id/nav_bar_booking"
+        app:showAsAction="always"
+        android:title="訂票" />
+    <item
+        android:id="@+id/nav_bar_service"
+        app:showAsAction="always"
+        android:title="會員服務" />
+    <item
+        android:id="@+id/nav_bar_aboutUS"
+        app:showAsAction="always"
+        android:title="關於我們" />
+</menu>
