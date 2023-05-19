@@ -2,11 +2,20 @@ package com.example.mobile_app_final_project;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.GridView;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,33 +24,28 @@ import android.view.ViewGroup;
  */
 public class Booking extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    GridView seat_overview;
+    Spinner movie_title;
+    Spinner cinema;
+    Spinner show_time;
+    Spinner sp_ticket_student;
+    Spinner sp_ticket_other;
+    EditText datePicker;
+    TextView amount;
+    TextView total_price;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    int available_seat = 30;
+    int reserved_seat = 0;
+    ArrayList<View> seat_number = new ArrayList<>();
+    ArrayAdapter<View> seats;
 
     public Booking() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Booking.
-     */
-    // TODO: Rename and change types and number of parameters
     public static Booking newInstance(String param1, String param2) {
         Booking fragment = new Booking();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -49,10 +53,6 @@ public class Booking extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -60,5 +60,26 @@ public class Booking extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_booking, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle saveInstance) {
+        seat_overview = view.findViewById(R.id.booking_seat_overview);
+        movie_title = view.findViewById(R.id.sp_movie_title);
+        cinema = view.findViewById(R.id.sp_cinema);
+        datePicker = view.findViewById(R.id.edt_date);
+        show_time = view.findViewById(R.id.sp_showTime);
+        sp_ticket_student = view.findViewById(R.id.sp_ticket_student);
+        sp_ticket_other = view.findViewById(R.id.sp_ticket_other);
+        amount = view.findViewById(R.id.booking_amount);
+        total_price = view.findViewById(R.id.booking_price);
+
+        for (int i=0; i < available_seat; i++) {
+            View seat = new View(getContext());
+            seat.setBackgroundColor(getResources().getColor(R.color.light_green));
+            seat.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+            seat.setPadding(5, 5, 5, 5);
+            seat_number.add(seat);
+        }
     }
 }
