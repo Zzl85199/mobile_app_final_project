@@ -5,10 +5,195 @@
     android:layout_height="match_parent"
     tools:context=".Booking">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="30dp">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="電影名稱："
+                        android:textSize="16sp"
+                        android:gravity="center_vertical"
+                        android:layout_weight="0"/>
+
+                    <Spinner
+                        android:id="@+id/sp_movie_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="電影院："
+                        android:textSize="16sp"
+                        android:gravity="center_vertical"
+                        android:layout_weight="0"/>
+
+                    <Spinner
+                        android:id="@+id/sp_cinema"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="日期："
+                        android:textSize="16sp"
+                        android:gravity="center_vertical"
+                        android:layout_weight="0"/>
+
+                    <EditText
+                        android:id="@+id/edt_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:hint="請選擇日期"
+                        android:inputType="date"
+                        android:layout_weight="1"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="放映場次："
+                        android:textSize="16sp"
+                        android:gravity="center_vertical"
+                        android:layout_weight="0"/>
+
+                    <Spinner
+                        android:id="@+id/sp_showTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"/>
+                </TableRow>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="學生票："
+                        android:textSize="16sp"
+                        android:layout_weight="0"/>
+
+                    <Spinner
+                        android:id="@+id/sp_ticket_student"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="優待票："
+                        android:textSize="16sp"
+                        android:layout_weight="0"/>
+
+                    <Spinner
+                        android:id="@+id/sp_ticket_other"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+            </TableLayout>
+
+            <GridView
+                android:id="@+id/booking_seat_overview"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:numColumns="5" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="訂票內容："
+                android:textSize="20sp" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="票數："
+                        android:textSize="16sp"
+                        android:layout_weight="0"/>
+
+                    <TextView
+                        android:id="@+id/booking_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:layout_weight="1"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="總額："
+                        android:textSize="16sp"
+                        android:layout_weight="0"/>
+
+                    <TextView
+                        android:id="@+id/booking_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:layout_weight="1"/>
+                </TableRow>
+            </TableLayout>
+
+            <Button
+                android:id="@+id/booking_submit_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="訂票" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </FrameLayout>
