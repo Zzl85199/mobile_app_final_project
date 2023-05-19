@@ -30,7 +30,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/title_mario"
-                    android:textSize="36dp"/>
+                    android:textSize="36sp"/>
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -90,7 +90,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="快速訂票："
-                    android:textSize="24dp" />
+                    android:textSize="24sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
