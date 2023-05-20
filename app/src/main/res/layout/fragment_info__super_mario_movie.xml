@@ -40,14 +40,15 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="上映日期："
-                        android:layout_weight="0"/>
+                        android:layout_weight="0"
+                        android:text="上映日期：" />
 
                     <TextView
                         android:id="@+id/info_released_date"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        android:text="2023 年 4 月 5 日 " />
                 </TableRow>
 
                 <TableRow
@@ -65,7 +66,8 @@
                         android:id="@+id/info_running_time"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        android:text="1 小時 32 分鐘" />
                 </TableRow>
 
                 <TableRow
@@ -79,11 +81,12 @@
                     android:text="故事簡介："
                     android:layout_weight="0"/>
 
-                <TextView
-                    android:id="@+id/info_introduction"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    <TextView
+                        android:id="@+id/info_introduction"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="故事從庫巴從企鵝王國奪取無敵星開始，隨後畫面切換到瑪利歐和路易吉在紐約市布魯克林區創業，開辦了一家管道疏通公司，但是反響不佳。兄弟二人不但遭到父親的反對，還被前雇主司派克嘲諷。兄弟二人在聽聞紐約市出現大規模地下水管爆裂事故後主動前去維修，在地底發現了神秘綠色水管並被吸入，二人在穿越的過程中分離。瑪利歐被傳送到蘑菇王國，而路易吉則被傳送到由庫巴掌控的「暗黑之國」並被俘虜。庫巴正在盤算向蘑菇王國的管理者碧姬公主求婚，如果對方不從，就利用自己掠奪來的無敵星把蘑菇王國毀滅。來到蘑菇王國的瑪利歐在奇諾比奧的帶領下覲見碧姬公主，公主此時正在準備前往森林王國向庫朗奇剛請求兵援。瑪利歐幾乎通過了公主的能力測驗，順利與公主和奇諾比奧一同隨行。 在森林王國，庫朗奇剛同意如果瑪利歐能擊敗他的兒子咚奇剛就派兵援助。在競技場上，瑪利歐起初處於劣勢，但是他在獲得了超級鈴鐺變身成貓咪瑪利歐後反敗為勝。獲得了金剛軍團援助的瑪利歐一行人抄近道經由彩虹之路駕車趕回蘑菇王國，中途被因為感覺自己要被瑪利歐橫刀奪愛而惱羞成怒的庫巴率領的軍團伏擊。金剛軍團全軍覆沒被俘虜，瑪利歐和咚奇剛被藍龜殼砸下賽道，只有碧姬公主和奇諾比奧兩人僥倖逃回蘑菇王國。 碧姬公主安排臣民疏散避難，在庫巴的威脅下同意婚事。在婚禮上，奇諾比奧在花束中藏了一朵冰之花，庫巴打算把所有俘虜丟入岩漿中獻祭，碧姬公主趁機翻臉利用冰之花把庫巴凍住，救出了俘虜。與此同時，瑪利歐和咚奇剛也乘坐咚奇剛的火箭滾筒來到了婚禮現場。庫巴掙脫冰凍，發射一顆大炮彈刺客企圖摧毀蘑菇王國，瑪利歐則變身成尾巴瑪利歐吸引炮彈刺客，將它引入來到蘑菇王國時的管道。炮彈刺客在管道中爆炸，導致整個蘑菇王國包括瑪利歐和庫巴等人全部被傳送到了布魯克林。 瑪利歐和路易吉利用庫巴的無敵星變身無敵，輕鬆擊敗了庫巴的軍團、打倒了庫巴。作為懲罰，碧姬公主把迷你蘑菇餵給庫巴，然後奇諾比奧將體型縮小後的庫巴關進了玻璃瓶當中。拯救了布魯克林的兄弟二人得到了布魯克林居民的讚賞，也得到了雙親和前雇主的肯定。在電影的最後，兄弟二人定居蘑菇王國。片尾彩蛋中，一顆有著綠色波點的神秘巨蛋突然出現一道裂縫，蛋裡傳來一聲耀西的叫聲。" />
                 </TableRow>
 
                 <TextView
