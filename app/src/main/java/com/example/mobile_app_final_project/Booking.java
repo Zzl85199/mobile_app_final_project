@@ -1,19 +1,23 @@
 package com.example.mobile_app_final_project;
 
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -22,7 +26,7 @@ import java.util.ArrayList;
  * Use the {@link Booking#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Booking extends Fragment {
+public class Booking extends Fragment implements AdapterView.OnItemClickListener {
 
     GridView seat_overview;
     Spinner movie_title;
@@ -76,10 +80,16 @@ public class Booking extends Fragment {
 
         for (int i=0; i < available_seat; i++) {
             View seat = new View(getContext());
-            seat.setBackgroundColor(getResources().getColor(R.color.light_green));
-            seat.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-            seat.setPadding(5, 5, 5, 5);
             seat_number.add(seat);
         }
+
+        SeatViewAdapter seatViewAdapter = new SeatViewAdapter(getActivity().getBaseContext(), seat_number);
+        seat_overview.setAdapter(seatViewAdapter);
+        seat_overview.setOnItemClickListener(this);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
     }
 }
