@@ -2,6 +2,7 @@ package com.example.mobile_app_final_project;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -37,15 +38,19 @@ public class Info_FastAndFurious extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_info__fast_and_furious, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_info_fast_and_furious, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle saveInstanceState) {
         sp_quick_booking_date = view.findViewById(R.id.sp_quick_booking_date);
         sp_quick_booking_time = view.findViewById(R.id.sp_quick_booking_time);
         furious_date = getResources().getStringArray(R.array.furious_date);
-        time1 = getResources().getStringArray(R.array.time1);
-        time2 = getResources().getStringArray(R.array.time2);
-        time3 = getResources().getStringArray(R.array.time3);
+        time1 = getResources().getStringArray(R.array.showtime_1);
+        time2 = getResources().getStringArray(R.array.showtime_2);
+        time3 = getResources().getStringArray(R.array.showtime_3);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(requireContext(), android.R.layout.simple_spinner_item, furious_date);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -75,7 +80,5 @@ public class Info_FastAndFurious extends Fragment {
 
             }
         });
-        // Inflate the layout for this fragment
-        return view;
     }
 }

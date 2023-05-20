@@ -14,13 +14,16 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SeatViewAdapter extends ArrayAdapter<View> {
 
+    private ArrayList<Boolean> available_seat;
     private ArrayList<View> seat_array;
-    public SeatViewAdapter(@NonNull Context context, ArrayList<View> seats) {
+    public SeatViewAdapter(@NonNull Context context, ArrayList<View> seats, ArrayList<Boolean> available_seat_status) {
         super(context, 0, seats);
         this.seat_array = seats;
+        this.available_seat = available_seat_status;
     }
 
     @NonNull
@@ -28,6 +31,7 @@ public class SeatViewAdapter extends ArrayAdapter<View> {
     public View getView(int position, @Nullable View convertView, @Nullable ViewGroup parent) {
         View currentItemView = convertView;
         int light_green = ContextCompat.getColor(getContext(), R.color.light_green);
+        int reserved_color = ContextCompat.getColor(getContext(), R.color.red);
         int selected_color = ContextCompat.getColor(getContext(), R.color.sky_blue);
 
         if (currentItemView == null) {
@@ -36,8 +40,11 @@ public class SeatViewAdapter extends ArrayAdapter<View> {
         View currentViewPosition = seat_array.get(position);
         TextView seat_status = currentItemView.findViewById(R.id.seat_status);
         assert currentViewPosition != null;
-        seat_status.setBackgroundColor(light_green);
         seat_status.setText(String.valueOf(seat_array.indexOf(seat_array.get(position))));
+        if (!this.available_seat.get(position)) {
+            seat_status.setBackgroundColor(reserved_color);
+        }
+        seat_status.setBackgroundColor(light_green);
         seat_status.setGravity(Gravity.CENTER);
         seat_status.setOnClickListener(view -> {
             if (((ColorDrawable) seat_status.getBackground()).getColor() != light_green) {

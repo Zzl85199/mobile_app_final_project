@@ -64,6 +64,6 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
                 break;
         }
         transaction.addToBackStack("layer2");
-        return false;
+        return true;
     }
 }
