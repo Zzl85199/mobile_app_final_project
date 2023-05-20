@@ -85,15 +85,15 @@
         android:id="@+id/info_FastAndFurious"
         android:name="com.example.mobile_app_final_project.Info_FastAndFurious"
         android:label="fragment_info__fast_and_furious"
-        tools:layout="@layout/fragment_info__fast_and_furious" />
+        tools:layout="@layout/fragment_info_fast_and_furious" />
     <fragment
         android:id="@+id/info_GuardiansOfTheGalaxy"
         android:name="com.example.mobile_app_final_project.Info_GuardiansOfTheGalaxy"
         android:label="fragment_info__guardians_of_the_galaxy"
-        tools:layout="@layout/fragment_info__guardians_of_the_galaxy" />
+        tools:layout="@layout/fragment_info_guardians_of_the_galaxy" />
     <fragment
         android:id="@+id/info_SuperMarioMovie"
         android:name="com.example.mobile_app_final_project.Info_SuperMarioMovie"
         android:label="fragment_info__super_mario_movie"
-        tools:layout="@layout/fragment_info__super_mario_movie" />
+        tools:layout="@layout/fragment_info_super_mario_movie" />
 </navigation>
