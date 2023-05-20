@@ -4,6 +4,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -66,11 +67,13 @@ public class Login extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_login, container, false);
+        return inflater.inflate(R.layout.fragment_login, container, false);
+    }
 
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle saveInstanceState) {
         login_register = view.findViewById(R.id.login_register);
         usernameEditText = view.findViewById(R.id.login_username);
         passwordEditText = view.findViewById(R.id.login_password);
@@ -84,35 +87,31 @@ public class Login extends Fragment {
                         .commit();
             }
         });
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Retrieve entered credentials
-                String username = usernameEditText.getText().toString();
-                String password = passwordEditText.getText().toString();
+        loginButton.setOnClickListener(view1 -> {
+            // Retrieve entered credentials
+            String username = usernameEditText.getText().toString();
+            String password = passwordEditText.getText().toString();
 
-                // Perform login authentication
-                boolean loginSuccessful = authenticateUser(username, password);
+            // Perform login authentication
+            boolean loginSuccessful = authenticateUser(username, password);
 
-                if (loginSuccessful) {
-                    // Login successful
-                    Toast.makeText(getActivity(), "Login successful", Toast.LENGTH_SHORT).show();
+            if (loginSuccessful) {
+                // Login successful
+                Toast.makeText(getActivity(), "Login successful", Toast.LENGTH_SHORT).show();
 
-                    // Optional: Perform any additional actions after successful login
+                // Optional: Perform any additional actions after successful login
 
-                    // Display a toast or navigate to another fragment/activity
-                    Member_service memberServiceFragment = new Member_service();
-                    FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.nav_host_fragment, memberServiceFragment)
-                            .commit();
-                } else {
-                    // Login failed
-                    Toast.makeText(getActivity(), "Login failed", Toast.LENGTH_SHORT).show();
-                }
+                // Display a toast or navigate to another fragment/activity
+                Member_service memberServiceFragment = new Member_service();
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.nav_host_fragment, memberServiceFragment)
+                        .commit();
+            } else {
+                // Login failed
+                Toast.makeText(getActivity(), "Login failed", Toast.LENGTH_SHORT).show();
             }
         });
-        return view;
     }
     private boolean authenticateUser(String username, String password) {
         // Retrieve data from SQLite database and compare credentials

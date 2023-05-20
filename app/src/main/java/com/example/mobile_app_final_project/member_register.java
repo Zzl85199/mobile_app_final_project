@@ -69,10 +69,12 @@ public class member_register extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_member_register, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_member_register, container, false);
+    }
 
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle saveInstance) {
         // Initialize database helper
         databaseHelper = new DatabaseHelper(getActivity());
 
@@ -123,12 +125,5 @@ public class member_register extends Fragment {
 
             }
         });
-
-        return view;
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle saveInstance) {
-
     }
 }
