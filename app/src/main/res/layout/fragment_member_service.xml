@@ -16,11 +16,24 @@
             android:layout_height="wrap_content"
             android:text="會員服務"
             android:textSize="36dp" />
+
         <TextView
+            android:id="@+id/welcomeTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hello, "
+            android:text=""
             android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="訂票紀錄："
+            android:textSize="20sp" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </LinearLayout>
 
 </FrameLayout>

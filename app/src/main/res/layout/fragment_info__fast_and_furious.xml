@@ -48,7 +48,8 @@
                         android:id="@+id/info_released_date"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:text="2023 年 5 月 19 日" />
                 </TableRow>
 
                 <TableRow
@@ -66,7 +67,8 @@
                         android:id="@+id/info_running_time"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:text="2 小時 21 分鐘" />
                 </TableRow>
 
                 <TableRow
@@ -84,7 +86,8 @@
                         android:id="@+id/info_introduction"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:text="在《玩命關頭5》的事件之後，巴西毒梟赫曼·雷耶斯之子但丁策劃十二年，對唐老大一家與團隊展開大型復仇。" />
                 </TableRow>
 
                 <TextView

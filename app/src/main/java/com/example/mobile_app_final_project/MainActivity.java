@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
     Fragment movie_query = new Movie_query();
     Fragment booking = new Booking();
     Fragment member_service = new Member_service();
+    Fragment login = new Login();
     Fragment aboutUs = new About_us();
 
     NavigationBarView bottom_nav_bar;
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
                 transaction.commit();
                 break;
             case R.id.nav_bar_service:
-                transaction.replace(R.id.nav_host_fragment, member_service);
+                transaction.replace(R.id.nav_host_fragment, login);
                 transaction.commit();
                 break;
             case R.id.about_us:
