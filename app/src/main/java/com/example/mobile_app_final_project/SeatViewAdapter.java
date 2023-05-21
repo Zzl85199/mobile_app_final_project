@@ -9,21 +9,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SeatViewAdapter extends ArrayAdapter<View> {
-
-    private ArrayList<Boolean> available_seat;
     private ArrayList<View> seat_array;
-    public SeatViewAdapter(@NonNull Context context, ArrayList<View> seats, ArrayList<Boolean> available_seat_status) {
+    private final Context mContext;
+    private final Movie movie;
+    public ArrayList<Integer> selected_seat = new ArrayList<>();
+    public SeatViewAdapter(@NonNull Context context, Movie movie_title, ArrayList<View> seats) {
         super(context, 0, seats);
-        this.seat_array = seats;
-        this.available_seat = available_seat_status;
+        seat_array = seats;
+        mContext = context;
+
+        movie = movie_title;
     }
 
     @NonNull
@@ -41,22 +47,36 @@ public class SeatViewAdapter extends ArrayAdapter<View> {
         TextView seat_status = currentItemView.findViewById(R.id.seat_status);
         assert currentViewPosition != null;
         seat_status.setText(String.valueOf(seat_array.indexOf(seat_array.get(position))));
-        if (!this.available_seat.get(position)) {
+        seat_status.setBackgroundColor(light_green);
+        if (!movie.getSeat_status().get(position)) {
+            seat_status.setText("X");
             seat_status.setBackgroundColor(reserved_color);
         }
-        seat_status.setBackgroundColor(light_green);
         seat_status.setGravity(Gravity.CENTER);
+        // Implement onClick event listener inside the adapter
         seat_status.setOnClickListener(view -> {
-            if (((ColorDrawable) seat_status.getBackground()).getColor() != light_green) {
+            String seat_text = ((TextView) view).getText().toString();
+
+            if (((ColorDrawable) seat_status.getBackground()).getColor() == light_green ) {
+                seat_status.setBackgroundColor(selected_color);
+                selected_seat.add(Integer.parseInt(seat_text));
+                System.out.println(selected_seat);
+            }
+            else if (((ColorDrawable) seat_status.getBackground()).getColor() == selected_color ){
                 seat_status.setBackgroundColor(light_green);
-                //seat_status.setTag(light_green);
+                if (selected_seat.contains(Integer.parseInt(seat_text))) {
+                    selected_seat.remove(Integer.valueOf(seat_text));
+                }
             }
             else {
-                seat_status.setBackgroundColor(selected_color);
-                //seat_status.setTag(selected_color);
+                Toast.makeText(getContext(), "無法選擇" + seat_text, Toast.LENGTH_SHORT).show();
             }
         });
 
         return currentItemView;
+    }
+
+    public ArrayList<Integer> getSelectedSeatPosition() {
+        return this.selected_seat;
     }
 }

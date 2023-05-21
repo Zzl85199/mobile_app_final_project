@@ -1,5 +1,6 @@
 package com.example.mobile_app_final_project;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -10,7 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
+
+import java.util.Calendar;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,7 +22,8 @@ import android.widget.Spinner;
  * create an instance of this fragment.
  */
 public class Info_FastAndFurious extends Fragment {
-    Spinner sp_quick_booking_date, sp_quick_booking_time;
+    Spinner sp_quick_booking_time;
+    EditText datePicker;
     String[] furious_date, time1, time2, time3;
 
     public Info_FastAndFurious() {
@@ -45,40 +50,31 @@ public class Info_FastAndFurious extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle saveInstanceState) {
-        sp_quick_booking_date = view.findViewById(R.id.sp_quick_booking_date);
+        datePicker = view.findViewById(R.id.edt_quick_booking_date);
         sp_quick_booking_time = view.findViewById(R.id.sp_quick_booking_time);
-        furious_date = getResources().getStringArray(R.array.furious_date);
         time1 = getResources().getStringArray(R.array.showtime_1);
         time2 = getResources().getStringArray(R.array.showtime_2);
         time3 = getResources().getStringArray(R.array.showtime_3);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(requireContext(), android.R.layout.simple_spinner_item, furious_date);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sp_quick_booking_date.setAdapter(adapter);
-
-        sp_quick_booking_date.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                String selectedItem = sp_quick_booking_date.getItemAtPosition(i).toString();
-                if (selectedItem.equals("5/20")||selectedItem.equals("5/23")||selectedItem.equals("5/26")){
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(requireContext(), android.R.layout.simple_spinner_item, time1);
-                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    sp_quick_booking_time.setAdapter(adapter);
-                } else if (selectedItem.equals("5/21")||selectedItem.equals("5/24")||selectedItem.equals("5/27")) {
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(requireContext(), android.R.layout.simple_spinner_item, time2);
-                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    sp_quick_booking_time.setAdapter(adapter);
-                } else {
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(requireContext(), android.R.layout.simple_spinner_item, time3);
-                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    sp_quick_booking_time.setAdapter(adapter);
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
+        datePicker.setShowSoftInputOnFocus(false);
+        datePicker.setOnClickListener(edt_view -> {
+            popup_datePicker(edt_view);
         });
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(requireContext(), android.R.layout.simple_spinner_item, time3);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sp_quick_booking_time.setAdapter(adapter);
+}
+
+    public void popup_datePicker(View view) {
+        Calendar dCalendar = Calendar.getInstance();
+        int year = dCalendar.get(Calendar.YEAR);
+        int mouth = dCalendar.get(Calendar.MONTH);
+        int day = dCalendar.get(Calendar.DAY_OF_MONTH);
+
+        new DatePickerDialog(view.getContext(), (view1, year1, month, dayOfMonth) -> {
+            String date = year1 + "/" + (month + 1) + "/" + dayOfMonth;
+            datePicker.setText(date);
+        }, year, mouth, day).show();
     }
 }
