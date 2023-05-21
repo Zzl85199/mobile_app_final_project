@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
                 transaction.commit();
                 break;
             case R.id.nav_bar_service:
-                transaction.replace(R.id.nav_host_fragment, member_service);
+                transaction.replace(R.id.nav_host_fragment, login);
                 transaction.commit();
                 break;
             case R.id.nav_bar_aboutUS:

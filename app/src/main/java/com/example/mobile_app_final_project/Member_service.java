@@ -1,5 +1,7 @@
 package com.example.mobile_app_final_project;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -19,7 +21,7 @@ import android.widget.TextView;
 public class Member_service extends Fragment {
     private TextView welcomeTextView;
     private DatabaseHelper databaseHelper;
-
+    private boolean isLoggedIn;
 
     public Member_service() {
         // Required empty public constructor
@@ -81,4 +83,5 @@ public class Member_service extends Fragment {
 
         return userName;
     }
+
 }

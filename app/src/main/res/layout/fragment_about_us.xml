@@ -1,15 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".About_us">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="關於我們"
-        android:textSize="36sp" />
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:paddingTop="20dp"
+                android:text="關於我們"
+                android:textSize="36sp" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/unnamed" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:gravity="center_horizontal"
+                android:text="近幾年，因為台灣盛行文化產業，也增添了我們一些文化商機。例如將當年的海報製成明信片或其他文創商品，數十年來收藏的電影海報與劇照，也常有人來借展，顏師傅亦開班授課，傳承技藝。也積極舉辦一些活動，擴大戲院的使用功能，期望能有更多的人來參與支持。 近年來因為戲院的播放系統全面數位化，原來使用的三十五厘米放映機只能成了古董，甚為可惜。因此，於今年在中正路的今日戲院成立「電影故事館」，展示一些電影相關器材，並介紹台南老戲院的歷史沿革及變遷。各位來台南，如果有空、有興趣，可以去看看。 「全美」，播放過無數的電影，進出過無數的人潮，是台南人的集體記憶所在。但我期望，從今往後，「全美」不僅是台南人記憶裡的戲院。因為，不管你是什麼理由，什麼原因來到這裡，我相信在這裡，你只會留下美好的回憶…。" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:text="票價"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:gravity="center_horizontal"
+                android:text="全票 300元，學生憑學生證8折，優待票(兩歲~國小六年級、65歲以上及身心障礙者)" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:text="營業時間"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:gravity="center_horizontal"
+                android:text="一~五   7:00~00:00" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:gravity="center_horizontal"
+                android:text="六~日   6:30~00:00" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:text="地點"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:gravity="center_horizontal"
+                android:text="桃園市龜山區文化一路259號" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </FrameLayout>
