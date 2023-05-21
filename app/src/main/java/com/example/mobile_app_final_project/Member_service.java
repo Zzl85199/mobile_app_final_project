@@ -4,11 +4,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
 /**
@@ -17,7 +19,9 @@ import android.widget.TextView;
  * create an instance of this fragment.
  */
 public class Member_service extends Fragment {
-    private TextView welcomeTextView;
+    TextView welcomeTextView;
+    ListView orders_container;
+
     private DatabaseHelper databaseHelper;
 
 
@@ -40,21 +44,19 @@ public class Member_service extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_member_service, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        // Find the TextView for displaying the welcome message
+        return inflater.inflate(R.layout.fragment_member_service, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle saveInstanceState) {
         welcomeTextView = view.findViewById(R.id.welcomeTextView);
-
-        // Retrieve the user name from SQLite or SharedPreferences
         String userName = retrieveUserName();
-
-        // Set the welcome message
         String welcomeMessage = "Hello, " + userName;
         welcomeTextView.setText(welcomeMessage);
 
-        return view;
+        //System.out.println(Movie.getSeat_status());
     }
 
     private String retrieveUserName() {

@@ -5,12 +5,14 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -23,6 +25,7 @@ import java.util.Calendar;
  */
 public class Info_SuperMarioMovie extends Fragment {
     EditText datePicker;
+    Button submit_btn;
 
     public Info_SuperMarioMovie() {
         // Required empty public constructor
@@ -52,6 +55,14 @@ public class Info_SuperMarioMovie extends Fragment {
         datePicker.setOnClickListener(edt_view -> {
             popup_datePicker(edt_view);
         });
+
+        submit_btn = view.findViewById(R.id.btn_quick_booking);
+        submit_btn.setOnClickListener(btn -> {
+            Booking booking = Booking.newInstance("超級瑪利歐電影", datePicker.getText().toString());
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.nav_host_fragment, booking);
+            transaction.commit();
+        });
     }
 
     public void popup_datePicker(View view) {
@@ -63,6 +74,7 @@ public class Info_SuperMarioMovie extends Fragment {
         new DatePickerDialog(view.getContext(), (view1, year1, month, dayOfMonth) -> {
             String date = year1 + "/" + (month + 1) + "/" + dayOfMonth;
             datePicker.setText(date);
+            submit_btn.setEnabled(true);
         }, year, mouth, day).show();
     }
 }

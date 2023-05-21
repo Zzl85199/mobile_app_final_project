@@ -28,7 +28,6 @@ public class SeatViewAdapter extends ArrayAdapter<View> {
         super(context, 0, seats);
         seat_array = seats;
         mContext = context;
-
         movie = movie_title;
     }
 

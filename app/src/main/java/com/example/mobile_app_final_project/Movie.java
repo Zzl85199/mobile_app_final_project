@@ -2,8 +2,6 @@ package com.example.mobile_app_final_project;
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class Movie {
     private String movie_title;
@@ -36,6 +34,6 @@ public class Movie {
     }
 
     public ArrayList<Boolean> getSeat_status() {
-        return seat_status;
+        return this.seat_status;
     }
 }
