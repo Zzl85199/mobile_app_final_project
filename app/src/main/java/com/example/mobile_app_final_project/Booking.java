@@ -188,11 +188,9 @@ public class Booking extends Fragment implements View.OnClickListener, AdapterVi
                 break;
             case R.id.sp_ticket_student:
                 ticket_student = sp_ticket_student.getSelectedItemPosition();
-                //amount.setText(amount.getText() + "學生票" + parent.getSelectedItemPosition() + "張");
                 break;
             case R.id.sp_ticket_other:
                 ticket_other = sp_ticket_other.getSelectedItemPosition();
-                //amount.setText(amount.getText() + "優待票" + parent.getSelectedItemPosition() + "張");
                 break;
         }
     }
@@ -245,11 +243,11 @@ public class Booking extends Fragment implements View.OnClickListener, AdapterVi
         builder.setTitle("確定訂購所填寫的項目嗎？");
         builder.setMessage(
                 "電影：" + selected_movie +
-                "影城：" + selected_cinema +
-                "日期：" + datePicker.getText() +
-                "場次：" + sp_show_time.getSelectedItem().toString() +
-                "票數：" + ticket_adult + ticket_student + ticket_other +
-                "金額：" + (ticket_adult + ticket_student + ticket_other) * 300 + "元"
+                "\n影城：" + selected_cinema +
+                "\n日期：" + datePicker.getText() +
+                "\n場次：" + sp_show_time.getSelectedItem().toString() +
+                "\n票數：" + (ticket_adult + ticket_student + ticket_other) +
+                "\n金額：" + (int)((ticket_adult + ticket_student*0.8 + ticket_other*0.6) * 300) + "元"
         );
 
         builder.setNegativeButton("確認", (dialog, which) -> {

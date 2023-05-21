@@ -112,18 +112,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="時間："
-                        android:layout_weight="0"/>
                 </LinearLayout>
 
                 <Button
                     android:id="@+id/btn_quick_booking"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:enabled="false"
                     android:text="查看售票情況" />
             </TableLayout>
         </LinearLayout>
