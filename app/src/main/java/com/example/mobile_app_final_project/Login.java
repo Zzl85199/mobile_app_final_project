@@ -83,7 +83,7 @@ public class Login extends Fragment {
                 Member_service memberServiceFragment = new Member_service();
                 FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
                 fragmentManager.beginTransaction()
-                        .replace(R.id.nav_host_fragment, memberServiceFragment)
+                        .replace(R.id.nav_host_fragment, memberServiceFragment, "member_service")
                         .commit();
             } else {
                 // Login failed

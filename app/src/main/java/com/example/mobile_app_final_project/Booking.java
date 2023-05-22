@@ -8,6 +8,8 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -270,8 +272,8 @@ public class Booking extends Fragment implements View.OnClickListener, AdapterVi
                     fastAndFurious.reserve_seat(seat);
                 }
             }
-
             Toast.makeText(getActivity(), "已成功訂購!", Toast.LENGTH_SHORT).show();
+            refreshFragment();
             dialog.dismiss();
         });
         builder.setPositiveButton("取消", (dialog, which) -> {
@@ -292,5 +294,11 @@ public class Booking extends Fragment implements View.OnClickListener, AdapterVi
             String date = year1 + "/" + (month + 1) + "/" + dayOfMonth;
             datePicker.setText(date);
         }, year, mouth, day).show();
+    }
+
+    public void refreshFragment() {
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.nav_host_fragment, new Booking());
+        transaction.commit();
     }
 }

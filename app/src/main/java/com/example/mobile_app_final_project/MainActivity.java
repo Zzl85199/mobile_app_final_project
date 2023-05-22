@@ -47,23 +47,22 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         switch (item.getItemId()) {
             case R.id.nav_bar_query:
-                transaction.replace(R.id.nav_host_fragment, movie_query);
+                transaction.replace(R.id.nav_host_fragment, movie_query, "movie_query");
                 transaction.commit();
                 break;
             case R.id.nav_bar_booking:
-                transaction.replace(R.id.nav_host_fragment, booking);
+                transaction.replace(R.id.nav_host_fragment, booking, "booking");
                 transaction.commit();
                 break;
             case R.id.nav_bar_service:
-                transaction.replace(R.id.nav_host_fragment, login);
+                transaction.replace(R.id.nav_host_fragment, login, "login");
                 transaction.commit();
                 break;
             case R.id.nav_bar_aboutUS:
-                transaction.replace(R.id.nav_host_fragment, aboutUs);
+                transaction.replace(R.id.nav_host_fragment, aboutUs, "about_us");
                 transaction.commit();
                 break;
         }
-        transaction.addToBackStack("layer2");
         return true;
     }
 }
