@@ -58,6 +58,7 @@ public class Movie_query extends Fragment {
         movie_title = getResources().getStringArray(R.array.movie_title);
 
         search_btn.setOnClickListener(btn -> {
+            search_results.clear();
             String keyword = search_bar.getText().toString();
             if (!keyword.matches("")) {
                 for (String title: movie_title) {
@@ -65,7 +66,7 @@ public class Movie_query extends Fragment {
                     if (index != -1) {
                         search_results.add(title);
                     }
-                    System.out.println(title + index);
+                    System.out.println(search_results);
                 }
                 if (search_results.isEmpty()) {
                     Toast.makeText(getActivity(), "未找到匹配內容", Toast.LENGTH_SHORT).show();
