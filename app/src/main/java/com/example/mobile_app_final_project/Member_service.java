@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -22,7 +23,7 @@ import android.widget.TextView;
  */
 public class Member_service extends Fragment {
     TextView welcomeTextView;
-    ListView orders_container;
+    EditText phone;
 
     private DatabaseHelper databaseHelper;
     private boolean isLoggedIn;
@@ -54,9 +55,12 @@ public class Member_service extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle saveInstanceState) {
         welcomeTextView = view.findViewById(R.id.welcomeTextView);
+        phone = view.findViewById(R.id.editTextTextPersonName5);
         String userName = retrieveUserName();
         String welcomeMessage = "Hello, " + userName;
         welcomeTextView.setText(welcomeMessage);
+        String retrievePhone = retrievePhone();
+        phone.setText(retrievePhone);
 
         //System.out.println(Movie.getSeat_status());
     }
@@ -86,4 +90,23 @@ public class Member_service extends Fragment {
         return userName;
     }
 
+    private String retrievePhone() {
+        DatabaseHelper databaseHelper = new DatabaseHelper(requireContext());
+        SQLiteDatabase db = databaseHelper.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT phone FROM members WHERE id = ?", new String[]{"1"});
+
+        String phone = null;
+        if (cursor.moveToFirst()) {
+            int phoneColumnIndex = cursor.getColumnIndex("phone");
+            if (phoneColumnIndex != -1) {
+                phone = cursor.getString(phoneColumnIndex);
+            }
+        }
+
+        cursor.close();
+        db.close();
+
+        return phone;
+    }
 }
